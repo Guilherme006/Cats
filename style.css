@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-family: 'Mulish', sans-serif;
+    font-size: 62.5%;
+    --hue: 195;
+    --base-color-white: hsl(0, 0%, 100%);
+    --base-color-blue: hsl(var(--hue), 91%, 25%);
+    --base-color-lightblue: hsl(var(--hue), 46%, 40%);
+    --base-color-gray: hsl(240, 6%, 13%);
+    --base-color-gray-900: hsl(240, 5%, 7%);
+}
+
+body {
+    font-size: 1.6rem;
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+header {
+    background-color: var(--base-color-blue);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.6rem 2.8rem;
+}
+
+header form {
+    flex: 1;
+}
+
+nav {
+    width: 4.0rem;
+    height: 4.0rem;
+}
+
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+    background-color: var(--base-color-lightblue);
+    color: var(--base-color-white);
+    border: 0;
+    border-radius: .6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--base-color-white);
+    opacity: 0.56;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.avatar {
+    width: 4.2rem;
+    height: 4.2rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+h1, h2 {
+    color: var(--base-color-gray);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 160%;
+}
+
+h3 {
+    color: var(--base-color-gray);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 160%;
+}
+
+.container {
+    padding: 3.1rem 2.6rem 0 2.2rem;
+    box-sizing: content-box;
+}
+
+button {
+    margin-top: 2.0rem;
+    margin-bottom: 4rem;
+    
+}
+
+.item img {
+    width: 100%;
+}
+
+main p {
+    color: var(--base-color-gray-900);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 160%;
+    text-align: justify;
+
+}
+
+.details p {
+    color: var(--base-color-gray-900);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 160%;
+    text-align: justify;
+
+}
+
+button {
+    border: none;
+    background-color: var(--base-color-white);
+}
+
+aside {
+    margin-bottom: 4.1rem;
+}
+
+.articles {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
+    overflow: hidden;
+}
+
+.articles img {
+    max-width: 15rem;
+    max-height: 8.4rem;
+    object-fit: cover;
+    transition: all 200ms ease-out;
+    display: block;
+    aspect-ratio: 16/9;
+}
+
+.articles img:hover {
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: var(--base-color-lightblue);
+}
+
+footer p {
+    color: var(--base-color-white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    padding: 2.6rem 1.6rem;
+}
+
+header {
+    --startY: -100%;
+    animation: move .2s;
+}
+
+footer {
+    --startY: 100%;
+    animation: move .2s;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--startY));
+    }
+}
+
+button:hover {
+    animation: appear .4s;
+}
+
+.articles {
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@media (min-width: 1109px) {
+    body {
+        max-width: 100%;
+    }
+
+    #app {
+        display: grid;
+        grid-template-areas: 
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        padding: 4.4rem 3.4rem 3.9rem 10rem;
+    }
+
+    main p {
+        max-width: 80rem;
+    }
+
+    .item img {
+        max-width: 80rem;
+        margin-bottom: 3.2rem;
+        border-radius: .5rem;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    aside {
+        grid-area: aside;
+        margin-top: 3.2rem;
+        margin-right: 11rem;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+}
